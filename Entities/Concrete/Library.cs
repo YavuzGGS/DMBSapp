@@ -9,7 +9,6 @@ namespace Entities.Concrete
 {
     public class Library : IEntity
     {
-        public int LibraryID { get; set; }
         public int UserID { get; set; }
         public int BookID { get; set; }
     }
