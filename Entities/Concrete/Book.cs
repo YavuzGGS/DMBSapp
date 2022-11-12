@@ -12,7 +12,7 @@ namespace Entities.Concrete
         public int ISBN { get; set; }
         public string Title { get; set; }
         public string Summary { get; set; }
-        public string Language { get; set; }
+        public string LanguageID { get; set; }
         
     }
 }
