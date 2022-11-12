@@ -1,0 +1,37 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<h1>Books</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ISBN
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Summary
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Books) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Summary)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
