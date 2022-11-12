@@ -10,7 +10,7 @@ using Core.DataAccess.Concrete.EntityFramework;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfUserDal : EfEntityRepositoryBase<User, MEFReadsContext>  IUserDal
+    public interface EfUserDal : EfEntityRepositoryBase<User, MEFReadsContext>,  IUserDal
     {
     }
 }

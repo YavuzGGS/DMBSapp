@@ -10,7 +10,7 @@ using Core.DataAccess.Concrete.EntityFramework;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfLanguageDal : EfEntityRepositoryBase<Language, MEFReadsContext>  ILanguageDal
+    public interface EfLanguageDal : EfEntityRepositoryBase<Language, MEFReadsContext>,  ILanguageDal
     {
     }
 }

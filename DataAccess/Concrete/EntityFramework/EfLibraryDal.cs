@@ -9,7 +9,7 @@ using Core.DataAccess.Concrete.EntityFramework;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfLibraryDal : EfEntityRepositoryBase<Library, MEFReadsContext>  ILibraryDal
+    public interface EfLibraryDal : EfEntityRepositoryBase<Library, MEFReadsContext>,  ILibraryDal
     {
     }
 }

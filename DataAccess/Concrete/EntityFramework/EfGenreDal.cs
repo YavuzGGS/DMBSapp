@@ -10,7 +10,7 @@ using Core.DataAccess.Concrete.EntityFramework;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfGenreDal : EfEntityRepositoryBase<Genre, MEFReadsContext>  IGenreDal
+    public interface EfGenreDal : EfEntityRepositoryBase<Genre, MEFReadsContext>,  IGenreDal
     {
     }
 }

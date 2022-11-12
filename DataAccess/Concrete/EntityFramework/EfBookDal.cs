@@ -9,7 +9,7 @@ using Core.DataAccess.Concrete.EntityFramework;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfBookDal : EfEntityRepositoryBase<Book, MEFReadsContext> IBookDal
+    public interface EfBookDal : EfEntityRepositoryBase<Book, MEFReadsContext>, IBookDal
     {
     }
 }

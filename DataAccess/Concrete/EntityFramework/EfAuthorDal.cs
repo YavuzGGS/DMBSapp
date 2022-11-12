@@ -9,7 +9,7 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfAuthorDal : EfEntityRepositoryBase<Author,MEFReadsContext> IAuthorDal
+    public interface EfAuthorDal : EfEntityRepositoryBase<Author,MEFReadsContext>, IAuthorDal
     {
     }
 }
