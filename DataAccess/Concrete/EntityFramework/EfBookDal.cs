@@ -1,5 +1,4 @@
-﻿using DataAccess.Abstract;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +9,7 @@ using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfBookDal : EfEntityRepositoryBase<Book, MEFReadsContext>, IBookDal
+    public class EfBookDal : EfEntityRepositoryBase<Book, MEFReadsContext>
     {
     }
 }
