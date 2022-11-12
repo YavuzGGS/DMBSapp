@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccess.Concrete.EntityFramework.MEFReadsContext
+namespace DataAccess.Concrete.EntityFramework.Contexts
 {
     public class MEFReadsContext : DbContext
     {

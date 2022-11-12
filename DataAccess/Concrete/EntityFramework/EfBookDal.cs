@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities.Concrete;
 using Core.DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfBookDal : EfEntityRepositoryBase<Book, MEFReadsContext>, IBookDal
+    public class EfBookDal : EfEntityRepositoryBase<Book, MEFReadsContext>, IBookDal
     {
     }
 }

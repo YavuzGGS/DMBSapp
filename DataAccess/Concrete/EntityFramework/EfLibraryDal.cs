@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Core.DataAccess.Concrete.EntityFramework;
+using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfLibraryDal : EfEntityRepositoryBase<Library, MEFReadsContext>,  ILibraryDal
+    public class EfLibraryDal : EfEntityRepositoryBase<Library, MEFReadsContext>,  ILibraryDal
     {
     }
 }

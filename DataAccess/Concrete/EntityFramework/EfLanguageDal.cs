@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Core.DataAccess.Concrete.EntityFramework;
-
+using DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public interface EfLanguageDal : EfEntityRepositoryBase<Language, MEFReadsContext>,  ILanguageDal
+    public class EfLanguageDal : EfEntityRepositoryBase<Language, MEFReadsContext>,  ILanguageDal
     {
     }
 }
