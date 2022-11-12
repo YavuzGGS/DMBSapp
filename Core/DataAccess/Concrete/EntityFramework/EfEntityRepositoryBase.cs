@@ -42,7 +42,7 @@ namespace Core.DataAccess.Concrete.EntityFramework
             }
         }
 
-        public List<TEntity> GetList(Expression<Func<TEntity, bool>>? filter = null) // If no filter, get all data, otherwise get filtered data
+        public List<TEntity> GetList(Expression<Func<TEntity, bool>> filter = null) // If no filter, get all data, otherwise get filtered data
         {
             using (TContext context = new TContext())
             {
