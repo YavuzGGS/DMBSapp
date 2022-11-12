@@ -12,7 +12,8 @@ namespace DataAccess.Concrete.EntityFramework.MEFReadsContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Server=(localdb)\MSSQLLocalDB;initial catalog=MEFReads;integrated security=true");
+            optionsBuilder.UseSqlServer(connectionString: @"data source=OGUZ;initial catalog=MEFReads;trusted_connection=true"); //Need your own connection string
+                                                                                                                                 //since we are using localDB
         }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
