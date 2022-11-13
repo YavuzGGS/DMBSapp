@@ -9,7 +9,6 @@ Classroom project on using a database, with a user interface that allows users t
 - Latest ASP.NET vers
 - microsoft sql server
 - sql server management studio
-
 - You can use this database (may not be up-to-date) -> https://drive.google.com/file/d/1rIM-dyl6jXn1PY38DKtCOx-1OeRyY6BT/view?usp=share_link
 - Also you have to change the connection string at DataAccess
 
@@ -22,7 +21,7 @@ Classroom project on using a database, with a user interface that allows users t
 - Admin Panel to edit user privileges
 - CRUD pages for books, authors etc
 - User role assignment for authentication
-
+- ???
 
 
 
