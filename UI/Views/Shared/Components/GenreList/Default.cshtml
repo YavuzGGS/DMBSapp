@@ -1,0 +1,12 @@
+﻿@model GenreViewModel
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Genres</h2>
+<ul class="list-group">
+    @foreach (var genre in Model.Genres)
+    {
+        <li class="list-group-item">@genre.GenreName</li>
+    }
+</ul>
