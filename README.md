@@ -14,13 +14,14 @@ Classroom project on using a database, with a user interface that allows users t
 
 ## TODO
 
-- Display page for all books
-- Display page for single book
-- Loging/Logout page
-- User Library page
-- Admin Panel to edit user privileges
+- Display page for all books (Yavuz)
+- Display page for single book (Fevzi)
+- Loging/Logout page (Serdar, Yağmur)
+- User Library page 
+- Admin Panel to edit user privileges (Ceylin)
 - CRUD pages for books, authors etc
-- User role assignment for authentication
+- Author page (Nadide)
+- User role assignment for authentication (Ceylin)
 - ???
 
 
