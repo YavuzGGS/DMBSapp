@@ -22,6 +22,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<Language> Languages { get; set; }
         public DbSet<Library> Library { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Book_Genre> Book_Genres { get; set; }
 
 
 
