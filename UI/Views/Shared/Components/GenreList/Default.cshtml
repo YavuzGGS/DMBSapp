@@ -5,8 +5,21 @@
 
 <h2>Genres</h2>
 <ul class="list-group">
+    @if (Model.CurrentGenre == 0)
+    {
+        <a href="/book/index" class="list-group-item active">All Items</a>
+    }
+    else
+    {
+        <a href="/book/index" class="list-group-item">All Items</a>
+    }
     @foreach (var genre in Model.Genres)
     {
-        <li class="list-group-item">@genre.GenreName</li>
+        var css = "list-group-item";
+        if (genre.GenreID == Model.CurrentGenre)
+        {
+            css += " active";
+        }
+        <a href="/book/index?genre=@genre.GenreID" class="@css">@genre.GenreName</a>
     }
 </ul>
