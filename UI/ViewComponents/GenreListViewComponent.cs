@@ -16,7 +16,8 @@ namespace UI.ViewComponents
         {
             var model = new GenreViewModel
             {
-                Genres = _genreManager.GetAll()
+                Genres = _genreManager.GetAll(),
+                CurrentGenre = Convert.ToInt32(HttpContext.Request.Query["genre"])
             };
             return View(model);
 
