@@ -3,11 +3,40 @@
     ViewData["Title"] = "Index";
     Layout = "_LayoutBooks";
 }
+<style>
+    .card {
+      flex-direction: row;
+      align-items: center;
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    .card img {
+      width: 30%;
+      border-top-right-radius: 0;
+      border-bottom-left-radius: calc(0.25rem - 1px);
+    }
+    a {
+      display: none;
+    }
+    .card-body {
+      padding: 0.5em 1.2em;
+    }
+    .card-body .card-text {
+      margin: 0;
+    }
+    .card img {
+      width: 15%;
+    }
+</style>
 
-<h1>Books</h1>
+@*<h1>Books</h1>
 <table class="table">
     <thead>
         <tr>
+            <th>
+
+            </th>
             <th>
                 ISBN
             </th>
@@ -22,6 +51,9 @@
     <tbody>
 @foreach (var item in Model.Books) {
         <tr>
+                <td>
+                    <img src="~/images/@item.ImageSource" alt="" />
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ISBN)
             </td>
@@ -35,3 +67,17 @@
 }
     </tbody>
 </table>
+*@
+
+@foreach (var item in Model.Books) {
+<div class="card">
+  <img src="~/images/@item.ImageSource" class="card-img-top" />
+  <div class="card-body">
+    <h5 class="card-title">@item.Title</h5>
+    <p class="card-text">
+      @item.Summary
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+}
