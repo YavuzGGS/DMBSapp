@@ -7,16 +7,18 @@ namespace UI.Controllers
     public class BookController : Controller
     {
         private BookManager _bookManager;
+        private Book_GenreManager _bookGenreManager;
         public BookController()
         {
             _bookManager = new BookManager();
+            _bookGenreManager = new Book_GenreManager();
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int genre)
         {
             var model = new BookViewModel
             {
-                Books = _bookManager.GetAll()
+                Books = genre>0? _bookManager.GetBooksByGenre(_bookGenreManager.GetByGenreID(genre)) : _bookManager.GetAll()
             };
             return View(model);
         }
