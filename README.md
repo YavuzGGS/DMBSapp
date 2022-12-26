@@ -10,17 +10,19 @@ Classroom project on using a database, with a user interface that allows users t
 - microsoft sql server
 - sql server management studio
 - You can use this database (may not be up-to-date) -> https://drive.google.com/file/d/1rIM-dyl6jXn1PY38DKtCOx-1OeRyY6BT/view?usp=share_link
+(SQL Mangement Studio doesn't work on MAC so if you are on IOS just create the database matching the entities in concrete for the tables)
 - Also you have to change the connection string at DataAccess
 
 ## TODO
 
-- Display page for all books
-- Display page for single book
-- Loging/Logout page
-- User Library page
-- Admin Panel to edit user privileges
+- Display page for all books (Yavuz)
+- Display page for single book (Fevzi)
+- Loging/Logout page (Serdar, Yağmur)
+- User Library page 
+- Admin Panel to edit user privileges (Ceylin)
 - CRUD pages for books, authors etc
-- User role assignment for authentication
+- Author page (Nadide)
+- User role assignment for authentication (Ceylin)
 - ???
 
 
