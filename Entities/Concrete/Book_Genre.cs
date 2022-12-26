@@ -10,7 +10,7 @@ namespace Entities.Concrete
     [Keyless]
     public class Book_Genre
     {
-        public string ISBN { get; set; }
+        public string BookISBN { get; set; }
         public int GenreID { get; set; }
     }
 }
