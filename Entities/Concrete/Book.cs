@@ -14,6 +14,7 @@ namespace Entities.Concrete
         public string Title { get; set; }
         public string Summary { get; set; }
         public int LanguageID { get; set; }
+        public string ImageSource { get; set; }
         
     }
 }
