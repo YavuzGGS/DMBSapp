@@ -22,5 +22,14 @@ namespace UI.Controllers
             };
             return View(model);
         }
+
+        public IActionResult BookDetails(string ISBN)
+        {
+            var model = new BookViewModel
+            {
+                Book = _bookManager.GetById(ISBN),
+            };
+            return View(model);
+        }
     }
 }

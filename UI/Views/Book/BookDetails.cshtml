@@ -1,0 +1,33 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "BookDetails";
+    Layout = "_Layout";
+}
+<style>
+    img{
+        max-height:250px;
+        max-width:250px!important;
+    }
+    .BookContent{
+        background-color:#F5F5DC;
+        padding:10px;
+        min-height:70vh;
+
+    }
+</style>
+
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-around border border-warning rounded BookContent" >
+        <div class="col-4 d-flex flex-column justify-content-center">
+            <div class="mb-5 d-flex justify-content-center"><img src="~/images/@Model.Book.ImageSource" /></div>
+            <div>
+                <p>ISBN: @Model.Book.ISBN</p>
+                <p>Author: BOB</p>
+                <p>Genres: </p>
+
+            </div>
+        </div>
+        <div class="col-6 ">Flex item 2</div>
+    </div>
+</div>
