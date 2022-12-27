@@ -7,26 +7,32 @@
     .card {
       flex-direction: row;
       align-items: center;
+      height:200px;
+      width:800px;
+      padding:10px 5px;
+      margin-bottom: 10px;
     }
     .card-title {
       font-weight: bold;
     }
-    .card img {
-      width: 30%;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: calc(0.25rem - 1px);
-    }
     a {
-      display: none;
+      border: none;
     }
     .card-body {
-      padding: 0.5em 1.2em;
+      padding: 10px 20px;
     }
     .card-body .card-text {
+      display:block;
+      text-align: justify;
+      text-justify: inter-word;
+      overflow:hidden;
+      max-height:100px;
+      width:550px;
       margin: 0;
     }
     .card img {
-      width: 15%;
+      height: 180px;
+      width:auto; 
     }
 </style>
 
@@ -75,7 +81,7 @@
   <div class="card-body">
     <h5 class="card-title">@item.Title</h5>
     <p class="card-text">
-      @item.Summary
+      @item.Summary.Substring(0,292)...
     </p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
