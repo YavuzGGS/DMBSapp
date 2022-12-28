@@ -6,6 +6,6 @@ namespace UI.Models
     {
         public List<Book> Books { get; set; }
         public Book Book { get; set; }
-        public List<String> Genres { get; set; }
+        public List<string> Genres { get; set; }
     }
 }
