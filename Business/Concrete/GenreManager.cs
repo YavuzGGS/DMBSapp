@@ -40,5 +40,16 @@ namespace Business.Concrete
         {
             _genreDal.Update(genre);
         }
+
+        public List<string> GetGenresByID(List<int> ids)
+        {
+            List<string> genres = new List<string>();
+            foreach (int id in ids)
+            {
+                genres.Add(GetById(id).GenreName+" ");
+            }
+
+            return genres;
+        }
     }
 }
