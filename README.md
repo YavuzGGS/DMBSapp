@@ -9,7 +9,7 @@ Classroom project on using a database, with a user interface that allows users t
 - Latest ASP.NET vers
 - microsoft sql server
 - sql server management studio
-- You can use this database (may not be up-to-date) -> https://drive.google.com/file/d/1rIM-dyl6jXn1PY38DKtCOx-1OeRyY6BT/view?usp=share_link
+- You can use this database (may not be up-to-date) -> https://drive.google.com/drive/folders/1YaCCetRyer9-kFhLw1ZXdmp3sHoKCO84?usp=sharing
 (SQL Mangement Studio doesn't work on MAC so if you are on IOS just create the database matching the entities in concrete for the tables)
 - Also you have to change the connection string at DataAccess
 
