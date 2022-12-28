@@ -46,7 +46,7 @@ namespace Business.Concrete
             List<string> genres = new List<string>();
             foreach (int id in ids)
             {
-                genres.Add(GetById(id).GenreName+" ");
+                genres.Add(GetById(id).GenreName + " ");
             }
 
             return genres;
