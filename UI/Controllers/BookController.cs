@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using UI.Models;
 
@@ -30,9 +31,24 @@ namespace UI.Controllers
             var model = new BookViewModel
             {
                 Book = _bookManager.GetById(ISBN),
-                Genres = _genreManager.GetGenresByID(_bookGenreManager.GetBookGenresByISBN(ISBN))
+                GenreNames = _genreManager.GetGenresByID(_bookGenreManager.GetBookGenresByISBN(ISBN))
             };
             return View(model);
         }
+
+        public IActionResult AddBook()
+        {
+            var model = new BookViewModel
+            {
+                Genres = _genreManager.GetAll()
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult AddBook(Book book, List<int> genres)
+        {
+            return View();
+        }
+
     }
 }
