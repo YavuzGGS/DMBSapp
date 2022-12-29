@@ -31,7 +31,7 @@
             <div class="d-flex flex-column justify-content-center p-4 m-1 border border-secondary border-1">
                 <p> <strong>ISBN: </strong> @Model.Book.ISBN</p>
                 <p> <strong>Author: </strong> @Model.Book.Author</p>
-                <p> <strong>Genres: </strong> @foreach(var item in Model.Genres){ @item; } </p>
+                <p> <strong>Genres: </strong> @foreach(var item in Model.GenreNames){ @item; } </p>
             </div>
         </div>
     </div>
