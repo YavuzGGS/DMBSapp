@@ -38,44 +38,7 @@
     }
 </style>
 
-@*<h1>Books</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-
-            </th>
-            <th>
-                ISBN
-            </th>
-            <th>
-                Title
-            </th>
-            <th>
-                Summary
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Books) {
-        <tr>
-                <td>
-                    <img src="~/images/@item.ImageSource" alt="" />
-                </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ISBN)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Summary)
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-*@
+<a class="btn btn-success mb-4" asp-controller="Book" asp-action="AddBook">Add new Book</a>
 
 @foreach (var item in Model.Books) {
 <div class="card">
