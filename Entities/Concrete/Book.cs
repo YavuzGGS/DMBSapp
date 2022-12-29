@@ -15,6 +15,7 @@ namespace Entities.Concrete
         public string Summary { get; set; }
         public int LanguageID { get; set; }
         public string ImageSource { get; set; }
+        public string Author { get; set; }
         
     }
 }
