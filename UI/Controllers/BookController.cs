@@ -3,6 +3,7 @@ using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using UI.Models;
 
+
 namespace UI.Controllers
 {
     public class BookController : Controller
@@ -45,9 +46,39 @@ namespace UI.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult AddBook(Book book, List<int> genres)
+        public IActionResult AddBook(Book book, List<int> genres, IFormFile image)
         {
-            return View();
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            FileInfo fileInfo = new FileInfo(image.FileName);
+            string fileName = image.FileName;
+            string fileNameWithPath = Path.Combine(path, fileName);
+            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+            {
+                image.CopyTo(stream);
+            }
+            Book bookToAdd = new Book
+            {
+                ISBN = book.ISBN,
+                Title = book.Title,
+                Summary = book.Summary,
+                LanguageID = book.LanguageID,
+                ImageSource = image.FileName,
+                Author = book.Author
+            };
+            _bookManager.Add(bookToAdd);
+            foreach (var genreID in genres)
+            {
+                Book_Genre book_genre = new Book_Genre
+                {
+                    BookISBN = book.ISBN,
+                    GenreID = genreID
+                };
+                _bookGenreManager.Add(book_genre);
+            }
+
+            return RedirectToAction("Index");
         }
 
     }
