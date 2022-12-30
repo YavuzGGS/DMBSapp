@@ -1,0 +1,51 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+<h1>Users</h1>
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                UserID
+            </th>
+            <th>
+                Username
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Role
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    <a class="btn btn-success mb-4" asp-action="Edit" asp-route-id="@item.UserID">Edit</a>
+                    <a class="btn btn-danger mb-4" asp-action="Delete" asp-route-id="@item.UserID">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
