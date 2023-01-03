@@ -1,20 +1,22 @@
 ﻿@model BookViewModel
 @{
     ViewData["Title"] = "BookDetails";
-    Layout = "_Layout";
+    Layout = "_LayoutAddBooks";
 }
 <style>
     .d-flex{
         flex-wrap:wrap;
     }
 </style>
-<h1 class="text-center">Add Book</h1>
 
-<hr />
+
+
 <div class="row d-flex justify-content-center">
-    <div class="col-md-8 border border-secondary border-2 rounded p-5" style="background-color:#F5F5DC;">
+    
+    <div class="col-md-12 border border-secondary rounded p-5 pb-1 pt-1" style="background-color:orange">
         <form asp-action="AddBook" enctype="multipart/form-data">
             <div class="form-group">
+                <h1 class="text-center">Add Book</h1>
                 <label asp-for="Book.ISBN" class="control-label">ISBN</label>
                 <input asp-for="Book.ISBN" class="form-control" />
                 <span asp-validation-for="Book.ISBN" class="text-danger"></span>
@@ -54,6 +56,7 @@
 
 
             <div class="form-group form-check d-flex justify-content-center">
+                
               @foreach (var genre in Model.Genres)
               {
                  <div class="m-3 d-flex justify-content-center align-items-center">

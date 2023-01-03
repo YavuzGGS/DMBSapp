@@ -9,7 +9,7 @@
         max-width:300px!important;
     }
     .BookContent{
-        background-color:#F5F5DC;
+        background-color: orange;
         padding:10px;
         min-height:50vh;
     }
@@ -17,6 +17,11 @@
         text-align: justify;
         text-justify: inter-word;
     }
+
+    .hdr {
+        color: yellow;
+    }
+
 </style>
 
 
@@ -31,7 +36,7 @@
             <div class="d-flex flex-column justify-content-center p-4 m-1 border border-secondary border-1">
                 <p> <strong>ISBN: </strong> @Model.Book.ISBN</p>
                 <p> <strong>Author: </strong> @Model.Book.Author</p>
-                <p> <strong>Genres: </strong> @foreach(var item in Model.GenreNames){ @item; } </p>
+                <p class="hdr"> <strong>Genres: </strong> @foreach(var item in Model.GenreNames){ @item; } </p>
             </div>
         </div>
     </div>

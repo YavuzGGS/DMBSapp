@@ -4,10 +4,10 @@
 }
 <style>
     .list-group-item{
-        background-color:#F5F5DC;
+        background-color:orange;
     }
 </style>
-<h2>Genres</h2>
+
 <ul class="list-group" >
     @if (Model.CurrentGenre == 0)
     {
@@ -19,11 +19,13 @@
     }
     @foreach (var genre in Model.Genres)
     {
-        var css = "list-group-item";
-        if (genre.GenreID == Model.CurrentGenre)
-        {
-            css += " active";
-        }
+            var css = "list-group-item";
+           
+            if (genre.GenreID == Model.CurrentGenre)
+            {
+                css += " active";
+               
+            }
         <a href="/book/index?genre=@genre.GenreID" class="@css">@genre.GenreName</a>
     }
 </ul>

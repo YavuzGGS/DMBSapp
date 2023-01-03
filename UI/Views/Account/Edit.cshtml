@@ -2,41 +2,44 @@
 
 @{
     ViewData["Title"] = "Edit";
-    
+    Layout = "_LayoutEdit";
 }
+<div style="background-color:orange;">
+    <h1 class="mt-1" style="text-align:center;">Edit</h1>
 
-<h1>Edit</h1>
+    <h4 style="text-align:center;">@Model.User.Username</h4>
+    
+    <div class="row m-3">
+        <div class="col-md-8 offset-2 mb-3">
+            <form asp-action="Edit">
+                <input type="hidden" asp-for="User.UserID" />
+                <div class="form-group">
+                    <label asp-for="User.Username" class="control-label"></label>
+                    <input asp-for="User.Username" class="form-control" />
+                    <span asp-validation-for="User.Username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.Password" class="control-label"></label>
+                    <input asp-for="User.Password" class="form-control" />
+                    <span asp-validation-for="User.Password" class="text-danger"></span>
+                </div>
 
-<h4>@Model.User.Username</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <input type="hidden" asp-for="User.UserID" />
-            <div class="form-group">
-                <label asp-for="User.Username" class="control-label"></label>
-                <input asp-for="User.Username" class="form-control" />
-                <span asp-validation-for="User.Username" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="User.Password" class="control-label"></label>
-                <input asp-for="User.Password" class="form-control" />
-                <span asp-validation-for="User.Password" class="text-danger"></span>
-            </div>
-           
-            
-            <div class="form-group">
-                <label asp-for="User.Role">Select list:</label>
-                <select asp-for="User.Role" class="form-control">
-                    <option value="User">User</option>
-                    <option value="Admin">Admin</option>
-                    <
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Update" class="btn btn-primary" />
-            </div>
-        </form>
+
+                <div class="form-group">
+                    <label asp-for="User.Role">Select list:</label>
+                    <select asp-for="User.Role" class="form-control">
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
+                        <
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
+
 </div>
+
 
