@@ -48,15 +48,18 @@ namespace UI.Controllers
         [HttpPost]
         public IActionResult AddBook(Book book, List<int> genres, IFormFile image)
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            FileInfo fileInfo = new FileInfo(image.FileName);
-            string fileName = image.FileName;
-            string fileNameWithPath = Path.Combine(path, fileName);
-            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+            if (image != null)
             {
-                image.CopyTo(stream);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+                FileInfo fileInfo = new FileInfo(image.FileName);
+                string fileName = image.FileName;
+                string fileNameWithPath = Path.Combine(path, fileName);
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                }
             }
             Book bookToAdd = new Book
             {
@@ -90,7 +93,7 @@ namespace UI.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult EditBookAsync(Book book, List<int> genres, IFormFile image)
+        public IActionResult EditBook(Book book, List<int> genres, IFormFile image)
         {
             if (image != null)
             {
@@ -144,6 +147,12 @@ namespace UI.Controllers
 
             return RedirectToAction("Index");
 
+        }
+        public IActionResult Delete(string ISBN)
+        {
+
+            _bookManager.Delete(_bookManager.GetById(ISBN));
+            return RedirectToAction("Index");
         }
     }
 }
