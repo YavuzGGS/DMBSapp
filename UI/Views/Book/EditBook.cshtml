@@ -1,0 +1,79 @@
+﻿@model BookViewModel
+@{
+    ViewData["Title"] = "BookDetails";
+    Layout = "_Layout";
+}
+<style>
+    .d-flex{
+        flex-wrap:wrap;
+    }
+    img{
+        max-height:300px;
+        max-width:300px!important;
+    }
+</style>
+<h1 class="text-center">Edit Book</h1>
+
+<hr />
+<div class="row d-flex justify-content-center">
+    <div class="col-md-8 border border-secondary border-2 rounded p-5" style="background-color:#F5F5DC;">
+        <form asp-action="EditBook" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Book.ISBN" class="control-label">ISBN</label>
+                <input asp-for="Book.ISBN" class="form-control" />
+                <span asp-validation-for="Book.ISBN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Title" class="control-label">Title</label>
+                <input asp-for="Book.Title" class="form-control" />
+                <span asp-validation-for="Book.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Summary" class="control-label">Summary</label>
+                <textarea asp-for="Book.Summary" class="form-control"></textarea>
+                <span asp-validation-for="Book.Summary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Book.Author" class="control-label">Author</label>
+                <input asp-for="Book.Author" class="form-control" />
+                <span asp-validation-for="Book.Author" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Book.LanguageID">Select Language:</label>
+                <select asp-for="Book.LanguageID" class="form-control">
+                    <option value="1">English</option>
+                    <option value="2">Turkish</option>
+                    <option value="3">Spanish</option>
+                    <option value="4">French</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input type="file" name="image" id="image" /> 
+                </div>
+            </div>
+
+
+            <div class="form-group form-check d-flex justify-content-center">
+              @foreach (var genre in Model.Genres)
+              {
+                 <div class="m-3 d-flex justify-content-center align-items-center">
+                    <tr>
+                        <td> 
+                            <input class="me-1" type="checkbox" name="genres" value="@genre.GenreID" />
+                            <label style="white-space: nowrap;">@genre.GenreName</label>
+                        </td>
+                    </tr>
+                 </div>
+
+              }
+            </div>
+            <div class="form-group text-center">
+                <input type="submit" value="Edit" class="btn btn-primary ps-3 pe-3" />
+            </div>
+        </form>
+    </div>
+</div>

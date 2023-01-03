@@ -22,7 +22,7 @@ namespace UI.Controllers
         {
             var model = new BookViewModel
             {
-                Books = genre>0? _bookManager.GetBooksByGenre(_bookGenreManager.GetByGenreID(genre)) : _bookManager.GetAll()
+                Books = genre > 0 ? _bookManager.GetBooksByGenre(_bookGenreManager.GetByGenreID(genre)) : _bookManager.GetAll()
             };
             return View(model);
         }
@@ -48,15 +48,18 @@ namespace UI.Controllers
         [HttpPost]
         public IActionResult AddBook(Book book, List<int> genres, IFormFile image)
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
-            FileInfo fileInfo = new FileInfo(image.FileName);
-            string fileName = image.FileName;
-            string fileNameWithPath = Path.Combine(path, fileName);
-            using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+            if (image != null)
             {
-                image.CopyTo(stream);
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+                FileInfo fileInfo = new FileInfo(image.FileName);
+                string fileName = image.FileName;
+                string fileNameWithPath = Path.Combine(path, fileName);
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                }
             }
             Book bookToAdd = new Book
             {
@@ -80,6 +83,76 @@ namespace UI.Controllers
 
             return RedirectToAction("Index");
         }
+        public IActionResult EditBook(string ISBN)
+        {
+            var model = new BookViewModel
+            {
+                Book = _bookManager.GetById(ISBN),
+                Genres = _genreManager.GetAll()
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult EditBook(Book book, List<int> genres, IFormFile image)
+        {
+            if (image != null)
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
+                FileInfo fileInfo = new FileInfo(image.FileName);
+                string fileName = image.FileName;
+                string fileNameWithPath = Path.Combine(path, fileName);
+                using (var stream = new FileStream(fileNameWithPath, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                }
+            }
 
+
+            List<Book_Genre> book_Genres = _bookGenreManager.GetAllByISBN(book.ISBN).ToList();
+            foreach (var item in book_Genres)
+            {
+                _bookGenreManager.Delete(item);
+            }
+
+            Book bookToAdd = new Book
+            {
+                ISBN = book.ISBN,
+                Title = book.Title,
+                Summary = book.Summary,
+                LanguageID = book.LanguageID,
+                Author = book.Author
+            };
+            if (image != null)
+            {
+                bookToAdd.ImageSource = image.FileName;
+            }
+            else
+            {
+                bookToAdd.ImageSource = _bookManager.GetById(book.ISBN).ImageSource;
+            }
+
+            _bookManager.Update(bookToAdd);
+
+            foreach (var genreID in genres)
+            {
+                Book_Genre book_genre = new Book_Genre
+                {
+                    BookISBN = book.ISBN,
+                    GenreID = genreID
+                };
+                _bookGenreManager.Add(book_genre);
+            }
+
+            return RedirectToAction("Index");
+
+        }
+        public IActionResult Delete(string ISBN)
+        {
+
+            _bookManager.Delete(_bookManager.GetById(ISBN));
+            return RedirectToAction("Index");
+        }
     }
 }

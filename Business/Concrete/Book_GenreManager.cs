@@ -30,6 +30,10 @@ namespace Business.Concrete
         {
             return _bookGenreDal.GetList();
         }
+        public List<Book_Genre> GetAllByISBN(string ISBN)
+        {
+            return _bookGenreDal.GetList(c => c.BookISBN == ISBN);
+        }
         public List<int> GetBookGenresByISBN(string ISBN)
         {
             List<int> genreIDs = new List<int>();
