@@ -25,7 +25,7 @@
         <div class="d-flex flex-column">
             <div class="mb-5 mt-5 me-3 ms-3"><img src="~/images/@Model.Book.ImageSource" /></div>
             <a class="btn btn-success m-4" asp-controller="Book"  asp-action="EditBook" asp-route-ISBN="@Model.Book.ISBN">Edit</a>
-            <a class="btn btn-danger me-4 ms-4" asp-controller="Book" asp-action="AddBook">Delete</a>
+            <a class="btn btn-danger me-4 ms-4 mb-5" asp-controller="Book" asp-action="DeleteBook" asp-route-ISBN="@Model.Book.ISBN">Delete</a>
         </div>
         <div class="d-flex flex-column justify-content-center">  
             <div class="text-center"><h3>@Model.Book.Title</h3></div>
