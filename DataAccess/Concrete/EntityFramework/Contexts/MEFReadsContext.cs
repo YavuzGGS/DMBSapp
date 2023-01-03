@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"data source=OGUZ;initial catalog=MEFReads;trusted_connection=true;TrustServerCertificate=Yes"); 
+            optionsBuilder.UseSqlServer(connectionString: @"data source=DESKTOP-QK122C6;initial catalog=MEFReads;trusted_connection=true;TrustServerCertificate=Yes"); 
                                                                                                                                //Need your own connection string
                                                                                                                                  //since we are using localDB
         }

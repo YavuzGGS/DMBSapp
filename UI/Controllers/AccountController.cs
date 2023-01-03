@@ -64,32 +64,6 @@ namespace UI.Controllers
             _userManager.Delete(_userManager.GetById(id));
             return RedirectToAction("Index");
         }
-        [HttpGet]
-        public IActionResult Login()
-        {
-            
-            var model = new UserViewModel
-            {
-                User = new User()
-            };
-            return View(model);
-        }
-
-        [HttpPost]
-        public IActionResult Login(User user)
-        {
-
-            List<User> users = _userManager.GetAll();
-            foreach (var dbuser in users)
-            {
-                if(user.Username == dbuser.Username && user.Password == dbuser.Password)
-                {
-
-                }
-            }
-
-            return RedirectToAction("Index");
-        }
 
     }
 }
