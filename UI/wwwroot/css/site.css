@@ -62,4 +62,5 @@ body {
     overflow: hidden;
     min-height: 100%;
     display: block;
+    background-repeat:repeat;
 }
