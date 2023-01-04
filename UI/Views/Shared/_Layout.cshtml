@@ -26,18 +26,37 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Book" asp-action="Index"><b>Books</b></a>
                         </li>
-                        
-                            <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Index"><b>Manage Users</b></a>
+                        @if (UserInfo.user != null)
+                        {
+                            @if (UserInfo.user.Role == "Admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Index"><b>Manage Users</b></a>
+                                </li>
+
+                            }
+                        }
+                        @if (UserInfo.user == null)
+                        {
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login"><b>Login</b></a>
                             </li>
-                          
+                        }
+                        else
+                        {
+                            <li class="nav-item ms-auto">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout"><b>@UserInfo.user.Username | Logout</b></a>
+                            </li>
+                        }
+
+
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div class="bg">
-        <div class="container mt-3 p-0" style="top:100px;">
+        <div class="container mt-3 p-0" >
             <img src="../images/reads.jpg" alt="reads" style="height: 100%; width: 100%; object-fit:contain">
             
             <main role="main" class="pb-3">
