@@ -35,6 +35,10 @@ namespace Business.Concrete
         {
             return _userDal.Get(c => c.UserID == id);
         }
+        public User GetByUsername(string username)
+        {
+            return _userDal.Get(c => c.Username == username);
+        }
 
         public void Update(User user)
         {
