@@ -65,5 +65,46 @@ namespace UI.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Login()
+        {
+
+            UserViewModel model = new UserViewModel()
+            {
+                User = new User()
+            };
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(User user)
+        {
+
+            User dbUser = _userManager.GetByUsername(user.Username);
+            if(dbUser != null)
+            {
+                if (dbUser.Username == user.Username && dbUser.Password == user.Password)
+                    UserInfo.user = dbUser;
+                    return RedirectToAction("Index", "Book", new { area = "" });
+            }
+
+            return View();
+        }
+
+        public IActionResult Register()
+        {
+            UserViewModel model = new UserViewModel()
+            {
+                User = new User()
+            };
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult Register(User user)
+        {
+            user.Role = "User";
+            _userManager.Add(user);
+            return RedirectToAction("Login", "Account");
+        }
+
     }
 }
