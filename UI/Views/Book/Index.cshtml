@@ -53,8 +53,17 @@
   <div class="card-body">
     <h5 class="card-title">@item.Title</h5>
     <p class="card-text">
-      @item.Summary.Substring(0,292)...
-    </p>
+                @if (item.Summary.Length > 292)
+                {
+                    @item.Summary.Substring(0,292)
+                    ;
+                }
+                else
+                {
+                    @item.Summary
+                }
+                ...
+    </p>    
     <a class="btn btn-primary" asp-controller="Book" asp-action="BookDetails" asp-route-ISBN="@item.ISBN">View Details</a>
   </div>
 </div>

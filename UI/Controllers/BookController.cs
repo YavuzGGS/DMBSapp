@@ -148,7 +148,7 @@ namespace UI.Controllers
             return RedirectToAction("Index");
 
         }
-        public IActionResult Delete(string ISBN)
+        public IActionResult DeleteBook(string ISBN)
         {
 
             _bookManager.Delete(_bookManager.GetById(ISBN));
